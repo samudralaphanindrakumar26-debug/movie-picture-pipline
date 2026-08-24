@@ -1,37 +1,22 @@
 module.exports = {
-  ignorePatterns: ["build/", "dist/", "node_modules/"],
-  extends: ["eslint:recommended", "plugin:react/recommended"],
-  plugins: ["react", "prettier"],
-  settings: {
-    react: {
-      version: "detect",
-    },
+  env: {
+    browser: true,
+    es2021: true,
+    jest: true,
   },
+  extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
   parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
     ecmaFeatures: {
       jsx: true,
     },
+    ecmaVersion: 12,
+    sourceType: 'module',
   },
-  env: {
-    browser: true,
-    es6: true,
-    node: true,
-    jest: true,
-  },
+  plugins: ['react', 'prettier'],
   rules: {
-    "prettier/prettier": [
-      "error",
-      {
-        singleQuote: true,
-        jsxSingleQuote: false,
-        printWidth: 120,
-        parser: "babel-ts",
-      },
-    ],
-    // Customize your rules here
-    "react/prop-types": process.env.FAIL_LINT ? 2 : 0,
-    "react/jsx-uses-vars": "warn",
+    'prettier/prettier': 'error',
+    'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
+    'no-console': 'off',
   },
 };
