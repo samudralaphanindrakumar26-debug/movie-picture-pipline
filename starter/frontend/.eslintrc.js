@@ -3,8 +3,9 @@ module.exports = {
     browser: true,
     es2021: true,
     jest: true,
+    node: true,
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier'],
+  extends: ['eslint:recommended'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -12,12 +13,9 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier'],
   rules: {
-    'prettier/prettier': 'error',
-    'react/react-in-jsx-scope': 'off',
-    'react/prop-types': 'off',
-    'no-console': 'off',
     'no-unused-vars': 'off',
+    'no-undef': 'off',
+    'no-console': 'off',
   },
 };
