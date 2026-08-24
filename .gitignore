@@ -1,0 +1,10 @@
+﻿*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+node_modules/
+starter/frontend/build/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
