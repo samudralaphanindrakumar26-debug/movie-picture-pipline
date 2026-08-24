@@ -22,4 +22,4 @@ RUN pipenv install --system --skip-lock
 
 COPY . .
 
-CMD ["uwsgi", "--http", ":5000", "--master", "--enable-threads", "--manage-script-name", "--mount", "/=server:app"]
+CMD ["uwsgi", "--http", ":5000", "--master", "--enable-threads", "--manage-script-name", "--mount", "/=__init__:app"]
