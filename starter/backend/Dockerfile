@@ -6,17 +6,19 @@ RUN adduser -u 1000 -D app
 
 RUN apk update && \
   apk add --no-cache \
-  pcre \
-  pcre-dev \
   build-base \
   gcc \
+  musl-dev \
   linux-headers \
-  openssl \
+  python3-dev \
+  pcre \
+  pcre-dev \
+  openssl-dev \
   libffi-dev \
-  && pip install --no-cache-dir pipenv
+  && pip install --no-cache-dir --upgrade pip pipenv
 
 COPY Pipfile Pipfile.lock ./
-RUN pipenv requirements > requirements.txt && pip install --no-cache-dir -r requirements.txt
+RUN pipenv install --system --skip-lock
 
 COPY . .
 
