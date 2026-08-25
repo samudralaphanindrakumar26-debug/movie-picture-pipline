@@ -5,7 +5,7 @@ from flask_cors import CORS
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from movies import movies_api
+from movies import movies_api  # noqa: E402
 
 app = Flask(__name__)
 CORS(app)
