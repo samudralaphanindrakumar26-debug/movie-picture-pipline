@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Restore npm cache
+      - name: Perform a cache action to restore cache before dependency install
         uses: actions/cache@v4
         with:
           path: ~/.npm
@@ -34,7 +34,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run linter
+      - name: Run lint
         run: npm run lint
 
   test:
@@ -52,7 +52,7 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Restore npm cache
+      - name: Perform a cache action to restore cache before dependency install
         uses: actions/cache@v4
         with:
           path: ~/.npm
@@ -79,6 +79,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build Docker Image
+      - name: Setup NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Perform a cache action to restore cache before dependency install
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('starter/frontend/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: CI=true npm run test
+
+      - name: Build Docker image
         run: |
           docker build --build-arg REACT_APP_MOVIE_API_URL="${REACT_APP_MOVIE_API_URL}" --tag mp-frontend:latest .
