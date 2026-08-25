@@ -410,3 +410,23 @@ kustomize build | kubectl apply -f -
 ## License
 
 [License](LICENSE.md)
+
+## Project Verification Screenshots
+
+### 1. Frontend Web Application
+![Frontend UI](screenshots/frontend.png)
+
+### 2. Backend API Endpoint (/movies)
+![Backend API Response](screenshots/backend.png)
+
+### 3. Frontend CI Pipeline
+![Frontend CI](screenshots/frontend_ci.png)
+
+### 4. Frontend CD Pipeline
+![Frontend CD](screenshots/frontend_cd.png)
+
+### 5. Backend CI Pipeline
+![Backend CI](screenshots/backend_ci.png)
+
+### 6. Backend CD Pipeline
+![Backend CD](screenshots/backend_cd.png)
